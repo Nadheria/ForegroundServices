@@ -26,7 +26,8 @@ Clone the repository:
 
 bash
 Copy code
-git clone https://github.com/[username]/[repository-name].git
+git clone https://github.com:Nadheria/ForegroundServices.git
+
 Open the project in Android Studio.
 
 Build and run the project on an emulator or a physical device.
