@@ -16,6 +16,7 @@ import android.os.Handler
 import android.os.IBinder
 import android.widget.Button
 import androidx.core.app.NotificationCompat
+import androidx.core.content.ContextCompat
 
 class ForegroundService : Service() {
     private var isServiceRunning = false
@@ -25,6 +26,8 @@ class ForegroundService : Service() {
     private var currentTime = 0L
     private val STOP_ACTION = "stop_action"
     private val RESUME_ACTION = "resume_action"
+    private val CA = "CUSTOM_ACTION"
+    private val CA2 = "CUSTOM_ACTION2"
 
 
     override fun onCreate() {
@@ -39,7 +42,11 @@ class ForegroundService : Service() {
         when (intent?.action) {
             STOP_ACTION -> stopTimer()
             RESUME_ACTION -> resumeTimer()
+            CA-> stopTimer()
+            CA2-> startTimer()
             else -> startService()
+
+
         }
         return START_STICKY
 
@@ -99,7 +106,7 @@ class ForegroundService : Service() {
 
 
 
-        startForeground(ONGOING_NOTIFICATION_ID, notification)
+       startForeground(ONGOING_NOTIFICATION_ID, notification)
 
         startTimer()
 
